@@ -15,16 +15,14 @@ class AgendaListViewController: UIViewController,UITableViewDataSource,UITableVi
     var appUIColor:UIColor = UIColor.brownColor()
     var topItems = [String]()
     var subItems = [String]()
-
     var selectedIndexPathSection:Int = -1
+    var expandedItemList = [Int]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         topItems = ["26th April 2017","27th April 2017","28th April 2017","29th April 2017","30th April 2017"]
         subItems = ["Monday","TuesDay","WednessDay"]
-
-
 
     }
     override func viewWillAppear(animated: Bool) {
@@ -64,11 +62,14 @@ class AgendaListViewController: UIViewController,UITableViewDataSource,UITableVi
 
         let headerCell = tableView.dequeueReusableCellWithIdentifier("agendaTableViewHeaderCellD") as! AgendaListHeaderTableViewCell
         headerCell.agendaDateLabel.text = topItems[section]as String
+
+        //a buttton is added on the top of all UI elements on the cell and its tag is being set as header's section.
+
         headerCell.headerCellButton.tag =  section+100
-        headerCell.expandCollapseImageView.tag =  section+100
         headerCell.headerCellButton.addTarget(self, action: "headerCellButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
 
-        if(selectedIndexPathSection == (headerCell.headerCellButton.tag-100))
+        //minimize and maximize image with animation.
+        if(expandedItemList.contains(section))
         {
             UIView.animateWithDuration(0.3, delay: 1.0, usingSpringWithDamping: 5.0, initialSpringVelocity: 5.0, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
                 headerCell.expandCollapseImageView.image =  UIImage(named: "maximize")
@@ -86,12 +87,15 @@ class AgendaListViewController: UIViewController,UITableViewDataSource,UITableVi
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        if( selectedIndexPathSection == section){
-            return 0
+        for (var i = 0; i < expandedItemList.count ; i++) {
+
+            if(expandedItemList[i] == section)
+            {
+                i == expandedItemList.count
+                return 0
+            }
         }
-        else {
-            return self.subItems.count
-        }
+        return self.subItems.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
@@ -107,16 +111,22 @@ class AgendaListViewController: UIViewController,UITableViewDataSource,UITableVi
 
 
     }
+    //button tapped on header cell
     func headerCellButtonTapped(sender:UIButton)
     {
-        if(selectedIndexPathSection == (sender.tag-100))
-        {
-            selectedIndexPathSection = -1
+        for (var i = 0; i < expandedItemList.count ; i++) {
+
+            if(expandedItemList[i] == (sender.tag-100))
+            {
+                expandedItemList.removeAtIndex(i)
+                self.agendaListTableView.reloadData()
+
+                return
+            }
         }
-        else   {
-            print("button tag : \(sender.tag)")
-            selectedIndexPathSection = sender.tag - 100
-        }
+        selectedIndexPathSection = sender.tag - 100
+        expandedItemList.append(selectedIndexPathSection)
+
 
         UIView.animateWithDuration(0.3, delay: 1.0, options: UIViewAnimationOptions.TransitionCrossDissolve , animations: {
             self.agendaListTableView.reloadData()
