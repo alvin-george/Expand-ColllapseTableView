@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5DF1DD0A1CD0918800677951 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1DD091CD0918800677951 /* AppDelegate.swift */; };
-		5DF1DD0C1CD0918800677951 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1DD0B1CD0918800677951 /* ViewController.swift */; };
 		5DF1DD0F1CD0918800677951 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1DD0D1CD0918800677951 /* Main.storyboard */; };
 		5DF1DD111CD0918800677951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1DD101CD0918800677951 /* Assets.xcassets */; };
 		5DF1DD141CD0918800677951 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1DD121CD0918800677951 /* LaunchScreen.storyboard */; };
 		5DF1DD1F1CD0918800677951 /* CollapseAndExpandableTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1DD1E1CD0918800677951 /* CollapseAndExpandableTableViewTests.swift */; };
 		5DF1DD2A1CD0918800677951 /* CollapseAndExpandableTableViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1DD291CD0918800677951 /* CollapseAndExpandableTableViewUITests.swift */; };
+		5DF1DD391CD091BC00677951 /* AgendaListHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1DD371CD091BC00677951 /* AgendaListHeaderTableViewCell.swift */; };
+		5DF1DD3A1CD091BC00677951 /* AgendaListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1DD381CD091BC00677951 /* AgendaListTableViewCell.swift */; };
+		5DF1DD3C1CD091C700677951 /* AgendaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1DD3B1CD091C700677951 /* AgendaListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		5DF1DD061CD0918800677951 /* CollapseAndExpandableTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollapseAndExpandableTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF1DD091CD0918800677951 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5DF1DD0B1CD0918800677951 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5DF1DD0E1CD0918800677951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DF1DD101CD0918800677951 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DF1DD131CD0918800677951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		5DF1DD251CD0918800677951 /* CollapseAndExpandableTableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollapseAndExpandableTableViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF1DD291CD0918800677951 /* CollapseAndExpandableTableViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapseAndExpandableTableViewUITests.swift; sourceTree = "<group>"; };
 		5DF1DD2B1CD0918800677951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DF1DD371CD091BC00677951 /* AgendaListHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaListHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		5DF1DD381CD091BC00677951 /* AgendaListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaListTableViewCell.swift; sourceTree = "<group>"; };
+		5DF1DD3B1CD091C700677951 /* AgendaListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +101,10 @@
 		5DF1DD081CD0918800677951 /* CollapseAndExpandableTableView */ = {
 			isa = PBXGroup;
 			children = (
+				5DF1DD3B1CD091C700677951 /* AgendaListViewController.swift */,
+				5DF1DD371CD091BC00677951 /* AgendaListHeaderTableViewCell.swift */,
+				5DF1DD381CD091BC00677951 /* AgendaListTableViewCell.swift */,
 				5DF1DD091CD0918800677951 /* AppDelegate.swift */,
-				5DF1DD0B1CD0918800677951 /* ViewController.swift */,
 				5DF1DD0D1CD0918800677951 /* Main.storyboard */,
 				5DF1DD101CD0918800677951 /* Assets.xcassets */,
 				5DF1DD121CD0918800677951 /* LaunchScreen.storyboard */,
@@ -256,8 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DF1DD0C1CD0918800677951 /* ViewController.swift in Sources */,
+				5DF1DD3C1CD091C700677951 /* AgendaListViewController.swift in Sources */,
+				5DF1DD391CD091BC00677951 /* AgendaListHeaderTableViewCell.swift in Sources */,
 				5DF1DD0A1CD0918800677951 /* AppDelegate.swift in Sources */,
+				5DF1DD3A1CD091BC00677951 /* AgendaListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
